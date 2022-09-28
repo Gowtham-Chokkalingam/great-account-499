@@ -1,24 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import NavBar from "./Routes/NavBar";
+
+import AllRoutes from "./Routes/AllRoutes";
+import { Container, Stack } from "@chakra-ui/react";
+import React from "react";
+import Home from "./Pages/Home";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Stack w={"full"} h={'8000'}>
+      <NavBar></NavBar>
+    
+      <AllRoutes></AllRoutes>
+    </Stack>
   );
 }
 
