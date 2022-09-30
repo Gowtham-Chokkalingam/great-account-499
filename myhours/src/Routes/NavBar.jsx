@@ -31,7 +31,7 @@ const NavBar = () => {
       ) : (
         <HStack >
           <Box p="1">
-            <NavLink to="/howis">
+            <NavLink to="/howits">
               <Text color='blue.500' fontWeight="bold" fontSize={fontSize}>
                 How it Works
               </Text>
@@ -60,7 +60,7 @@ const NavBar = () => {
             </NavLink>
           </Box>
           <Box p="1">
-            <NavLink to="/support">
+            <NavLink to="/singin">
               <Text  color='blue.500' fontWeight="bold" fontSize={fontSize}>
                 Sign In
               </Text>

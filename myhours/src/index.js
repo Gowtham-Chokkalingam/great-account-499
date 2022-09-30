@@ -2,17 +2,46 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import { ChakraProvider, ColorModeScript } from '@chakra-ui/react'
+import { ChakraProvider, extendTheme, ColorModeScript } from "@chakra-ui/react";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 
+const theme = extendTheme({
+  semanticTokens: {
+    colors: {
+      error: 'red.500',
+      success: 'green.500',
+      primary: {
+        default: 'gray.600',
+        _dark: 'gray.100',
+      },
+      secondary: {
+        default: 'gray.900',
+        _dark: 'gray.50',
+      },
+      colr2:{
+        default: 'gray.600',
+        _dark: 'gray.50',
+      },
+      colr3:{
+        default: 'blue.600',
+        _dark: 'gray.50',
+      },
+
+      footer:{
+        default: 'white',
+        _dark: 'gray.900',
+      }
+    },
+  },
+})
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <ChakraProvider >
-<ColorModeScript initialColorMode="light"></ColorModeScript>
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+  <ChakraProvider theme={theme}>
+    <ColorModeScript initialColorMode="light"></ColorModeScript>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </ChakraProvider>
 );
 
