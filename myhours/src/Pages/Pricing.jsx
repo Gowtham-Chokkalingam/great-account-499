@@ -1,21 +1,20 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import {
-  AspectRatio,
+
   Box,
   Button,
-  Center,
-  Container,
+
   Flex,
   Grid,
   GridItem,
   Heading,
   Highlight,
   HStack,
-  Icon,
+  
   Image,
   ListItem,
-  StackDivider,
+ 
   Table,
   TableContainer,
   Tbody,

@@ -1,0 +1,220 @@
+{
+  "signUp": [
+    {
+      "firstName": "Gowtham",
+      "lastName": "C",
+      "phone": "+918220330478",
+      "email": "eve.holt@reqres.in",
+      "age": 27,
+      "country": "india",
+      "password": "1234",
+      "confirmPassword": "1234",
+      "id": 1
+    },
+    {
+      "firstName": "Gowtham",
+      "lastName": "C",
+      "phone": "+918220330478",
+      "email": "eve.holt@reqres.in",
+      "age": 27,
+      "country": "india",
+      "password": "1234",
+      "confirmPassword": "1234",
+      "id": 2
+    },
+    {
+      "firstName": "Gowtham",
+      "lastName": "C",
+      "phone": "+918220330478",
+      "email": "gowthamtceian@gmail.com",
+      "age": 27,
+      "country": "canada",
+      "password": "asd",
+      "confirmPassword": "asd",
+      "id": 3
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "phone": "",
+      "email": "",
+      "age": "",
+      "country": "",
+      "password": "",
+      "confirmPassword": "",
+      "id": 4
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "phone": "",
+      "email": "",
+      "age": "",
+      "country": "",
+      "password": "1",
+      "confirmPassword": "1",
+      "id": 5
+    },
+    {
+      "firstName": "Janani",
+      "lastName": "janu",
+      "phone": "+918220330478",
+      "email": "janu@gmail",
+      "age": 27,
+      "country": "india",
+      "password": "4123",
+      "confirmPassword": "4123",
+      "id": 6
+    },
+    {
+      "firstName": "Gc",
+      "lastName": "",
+      "phone": "+918220330478",
+      "email": "g@gmail.com",
+      "age": "",
+      "country": "india",
+      "password": "1234",
+      "confirmPassword": "1234",
+      "id": 7
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "phone": "",
+      "email": "eve.holt@reqres.in",
+      "age": "",
+      "country": "",
+      "password": "123",
+      "confirmPassword": "123",
+      "id": 8
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "phone": "",
+      "email": "eve.holt@reqres.in",
+      "age": "",
+      "country": "",
+      "password": "12",
+      "confirmPassword": "12",
+      "id": 9
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "phone": "",
+      "email": "eve.holt@reqres.in",
+      "age": "",
+      "country": "",
+      "password": "12",
+      "confirmPassword": "12",
+      "id": 10
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "phone": "",
+      "email": "eve.holt@reqres.in",
+      "age": "",
+      "country": "",
+      "password": "12",
+      "confirmPassword": "12",
+      "id": 11
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "phone": "",
+      "email": "eve.holt@reqres.in",
+      "age": "",
+      "country": "",
+      "password": "1",
+      "confirmPassword": "1",
+      "id": 12
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "phone": "",
+      "email": "eve.holt@reqres.ind",
+      "age": "",
+      "country": "",
+      "password": "",
+      "confirmPassword": "",
+      "id": 13
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "phone": "",
+      "email": "",
+      "age": "",
+      "country": "",
+      "password": "",
+      "confirmPassword": "",
+      "id": 14
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "phone": "",
+      "email": "eve.holt@reqres.in",
+      "age": "",
+      "country": "",
+      "password": "12",
+      "confirmPassword": "12",
+      "id": 15
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "phone": "",
+      "email": "eve.holt@reqres",
+      "age": "",
+      "country": "",
+      "password": "12",
+      "confirmPassword": "12",
+      "id": 16
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "phone": "",
+      "email": "g@email",
+      "age": "",
+      "country": "",
+      "password": "f",
+      "confirmPassword": "f",
+      "id": 17
+    },
+    {
+      "firstName": "Madhu",
+      "lastName": "Teegireddy",
+      "phone": "95656",
+      "email": "madhu@gmail.com",
+      "age": 35,
+      "country": "japan",
+      "password": "1234",
+      "confirmPassword": "1234",
+      "id": 18
+    },
+    {
+      "firstName": "Madhu",
+      "lastName": "Teegireddy",
+      "phone": "",
+      "email": "madhu@gmail.com",
+      "age": 35,
+      "country": "india",
+      "password": "1234",
+      "confirmPassword": "1234",
+      "id": 19
+    }
+  ],
+  "signin": [
+    {
+      "email": "eve.holt@reqres.in",
+      "password": "cityslicka",
+      "id": 1
+    }
+  ]
+}
