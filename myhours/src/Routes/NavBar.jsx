@@ -61,6 +61,14 @@ const NavBar = () => {
               </Text>
             </NavLink>
           </Box>
+
+          <Box p="1">
+            <NavLink to="/project">
+              <Text color="blue.500" fontWeight="bold" fontSize={fontSize}>
+                My Projects
+              </Text>
+            </NavLink>
+          </Box>
           {/* Sign in */}
           <Box p="1">
             {authState.isAuth ? (
