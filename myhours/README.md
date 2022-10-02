@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+Note:
+1. depending on where you are deploying your application, and you need to set env variables for the provider
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+2. you need to set it up accordingly.
 
-## Available Scripts
+3. netlify, vercel and heroku will have different configuration files for each
 
-In the project directory, you can run:
+Netlify
 
-### `npm start`
+* Instantly build and deploy your sites to our global network from Git. Custom domains, HTTPS, deploy previews, rollbacks, and much more.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+Deploying a React App to Netlify
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+After making our apps look amazing we want to show it off to the world!
 
-### `npm run build`
+Lets host our React App using Netlify.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Account creation:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. First go to https://www.netlify.com/ and create an account using Github.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+installation of netlify cli
 
-### `npm run eject`
+2. Install the netlify CLI(command line interface) using npm install netlify-cli -g.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+package.json update:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. In your package.json add a field name with value
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+"homepage":"."
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Why? Read more here https://create-react-app.dev/docs/deployment/#serving-the-same-build-from-different-paths
 
-## Learn More
+create a build:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. Next go to your React App folder in the command line and run the command npm run build. This will do all the work necessary to have your app ready for deployment. (If you are not able to get routes working, sometimes its due to BrowserRouter, you can use HashRouter, this works fine when deploying to netlify)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+If you have react-router-dom installed, then you need to do an additional step of setting redirects on netlify
 
-### Code Splitting
+In your build folder, create _redirects file.
+Add the following to the _redirects file
+/* /index.html 200
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+deploy command:
 
-### Analyzing the Bundle Size
+5. Now type netlify deploy and visit the link it provides to verify your account.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+6. Once you are done verifying, it should give you some options, select + Create & configure a new site .
 
-### Making a Progressive Web App
+7. Select a team, this would usually be the same as your Netlify-ID.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+8. Then give your website some unique name.
 
-### Advanced Configuration
+9. In the deploy folder option type build.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+10. Your draft should be live on the Live Draft URL:. Visit the link and make sure your application is working correctly.
 
-### Deployment
+deploy prod
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+11. If you application is working, type netlify deploy --prod to deploy the application. The deploy path should be build.
 
-### `npm run build` fails to minify
+success!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+12. Visit the live URL to see your website live on the Internet for anyone to visit. You will have to run the deploy process everytime to see changes to your website. For more information about automating deployments, do read up about CI/CD integration. Read more
+
+
+Deploying a React app with Vercel or Now.sh
+NOTE: now.sh is now vercel
+
+installation
+
+1. install now globlaly npm i -g vercel.
+
+2. move inside your react app folder (make sure you are on the entry folder package.json etc is located.
+
+3. run the command vercel from terminal.
+
+4. If not logged in, or if no account created you might be asked to. once login and authentication is setup, the terminal will ask you a few questions to setup and deploy.
+
+5. Once that is over, it will show its ready and gives you a production link.
+
+6. If you want to deploy it to a production build, then do vercel --prod.
+
+
+Heroku
+
+You can host frontend and backend applications on heroku:
+
+they provide a free service
+but if it is inactive for more than 2 hours, the server gets shut down, and needs to start again (causing a coldstart)
+deploy react with heroku with zero configuration
+npm install -g create-react-app
+create-react-app my-app
+cd my-app
+git init
+heroku create -b https://github.com/mars/create-react-app-buildpack.git
+git add .
+git commit -m "react-create-app on Heroku"
+git push heroku master
+heroku open
