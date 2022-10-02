@@ -1,29 +1,10 @@
-import React from "react";
+import React, { useMemo } from "react";
 import axios from "axios";
 
-import {
-  ThemeProvider,
-  theme,
-  ColorModeProvider,
-  CSSReset,
-  Box,
-  Flex,
-  Heading,
-  Text,
-  Link,
-  FormControl,
-  FormLabel,
-  Input,
-  Stack,
-  Checkbox,
-  Button,
-  Image,
-  GridItem,
-  Grid,
-  Select,
-  Textarea,
-  useToast,
-} from "@chakra-ui/react";
+import Select from "react-select";
+import countryList from "react-select-country-list";
+
+import { Box, Flex, Text, FormControl, FormLabel, Input, Button, Image, GridItem, Grid, useToast } from "@chakra-ui/react";
 import { getData } from "./AxiosApi";
 import { useNavigate } from "react-router-dom";
 
@@ -52,6 +33,17 @@ const SignUp = () => {
   const [emailCheck, setEmailChek] = React.useState(false);
 
   const navigate = useNavigate();
+
+  // For country drop down
+  const [value, setValue] = React.useState("");
+  const options = useMemo(() => countryList().getData(), []);
+
+  const changeHandler = (value) => {
+    console.log("value:", value.label);
+    setValue(value.label);
+    setFromData({ ...formData, country: value.label });
+  };
+
   const fetchData = () => {
     getData()
       .then((res) => {
@@ -90,6 +82,23 @@ const SignUp = () => {
         return false;
       }
     });
+
+    //  if (data.find((item) => item.email === em)) {
+
+    //   setEmailChek(true);
+    //     toast({
+    //       title: "User Check",
+    //       position: "top",
+    //       description: "Email Already Exist",
+    //       status: "warning",
+    //       duration: 2000,
+    //       isClosable: true,
+    //     });
+
+    //   return true;
+    //   } else {
+    //     return false;
+    //   }
 
     if (ans.includes(true)) {
       setEmailChek(true);
@@ -229,12 +238,14 @@ const SignUp = () => {
               <GridItem colSpan={2}>
                 <FormControl>
                   <FormLabel>Country</FormLabel>
-                  <Select name="country" value={country} onChange={handleChange} placeholder="Select country">
+
+                  <Select placeholder={value ? value : "Select Country"} name="country" options={options} value={value} onChange={changeHandler} />
+                  {/* <Select name="country" value={country} onChange={handleChange} placeholder="Select country">
                     <option value="india">India</option>
                     <option value="usa">USA</option>
                     <option value="canada">Canada</option>
                     <option value="japan">Japan</option>
-                  </Select>
+                  </Select> */}
                 </FormControl>
               </GridItem>
 
@@ -254,218 +265,5 @@ const SignUp = () => {
     </Box>
   );
 };
-
-// const SignUpArea = () => {
-//   return (
-//     <Flex minHeight="100vh" width="full" align="center" justifyContent="center">
-//       <Box borderWidth={1} px={4} width="full" maxWidth="500px" borderRadius={4} textAlign="center" boxShadow="lg">
-//         <Box p={4}>
-//           {/* <SignUpHeader /> */}
-//           <Box textAlign={"center"}>
-//       <Image w={"30%"} m={"auto"} src="https://uploads-ssl.webflow.com/5c77a918ef19681741be7bca/5fd37c83dfa3ccb0d2d9836f_myhours-logo.svg"></Image>
-//       <Heading mt={2}>Sign Up to Myhours Account</Heading>
-//     </Box>
-//           {/* <SignUpForm /> */}
-//           <Grid w="full" templateColumns="repeat(2, 1fr)" gap={2}>
-//         {/* 1 Name */}
-//         <GridItem colSpan={{ base: 2, md: 1 }}>
-//           <FormControl isRequired>
-//             <FormLabel>Name</FormLabel>
-//             <Input placeholder="Name" type="text" name="name" value={name} onChange={handleChange} />
-//           </FormControl>
-//         </GridItem>
-
-//         {/* 2 Email*/}
-//         <GridItem colSpan={{ base: 2, md: 1 }}>
-//           <FormControl isRequired>
-//             <FormLabel>Email</FormLabel>
-//             <Input placeholder="Email" type="email" name="email" value={email} onChange={handleChange} />
-//           </FormControl>
-//         </GridItem>
-
-//         {/* 3 Phone*/}
-//         <GridItem colSpan={{ base: 2, md: 1 }}>
-//           <FormControl isRequired>
-//             <FormLabel>Phone</FormLabel>
-//             <Input placeholder="Phone" type="text" name="phone" value={phone} onChange={handleChange} />
-//           </FormControl>
-//         </GridItem>
-
-//         {/* 4 Age*/}
-//         <GridItem colSpan={{ base: 2, md: 1 }}>
-//           <FormControl isRequired>
-//             <FormLabel>Age</FormLabel>
-//             <Input placeholder="Age" type="number" name="age" value={age} onChange={handleChange} />
-//           </FormControl>
-//         </GridItem>
-
-//         {/* 5 */}
-//         <GridItem colSpan={2}>
-//           <FormControl isRequired>
-//             <FormLabel>Adderess</FormLabel>
-//             <Textarea placeholder="address" type="text" name="address" value={address} onChange={handleChange} resize="none" />
-//           </FormControl>
-//         </GridItem>
-
-//         {/* 6 Country */}
-//         <GridItem colSpan={2}>
-//           <FormControl>
-//             <FormLabel>Country</FormLabel>
-//             <Select name="country" value={country} onChange={handleChange} placeholder="Select country">
-//               <option value="india">India</option>
-//               <option value="usa">USA</option>
-//               <option value="canada">Canada</option>
-//               <option value="japan">Japan</option>
-//             </Select>
-//           </FormControl>
-//         </GridItem>
-
-//         {/* 7  Profile Pic */}
-//         <GridItem colSpan={2}>
-//           <FormControl isRequired>
-//             <FormLabel>Profile Pic</FormLabel>
-//             <Input placeholder="Profile Picture" type="text" name="pro_pic" value={pro_pic} onChange={handleChange} />
-//           </FormControl>
-//         </GridItem>
-
-//         {/* 8 Buttom */}
-//         <GridItem colSpan={2}>
-//           <FormControl isRequired>
-//             <Button onClick={hanldeClick} variant="outline" w={"full"}>
-//               CREATE PROFILE
-//             </Button>
-//           </FormControl>
-//         </GridItem>
-//       </Grid>
-//           {/* <signUp /> */}
-//         </Box>
-//       </Box>
-//     </Flex>
-//   );
-// };
-
-// const SignUpHeader = () => {
-//   return (
-//     <Box textAlign={"center"}>
-//       <Image w={"30%"} m={"auto"} src="https://uploads-ssl.webflow.com/5c77a918ef19681741be7bca/5fd37c83dfa3ccb0d2d9836f_myhours-logo.svg"></Image>
-//       <Heading mt={2}>Sign Up to Myhours Account</Heading>
-//     </Box>
-//   );
-// };
-
-// const SignUpForm = () => {
-//   return (
-//     <Box my={8} textAlign="left">
-//       <Grid w="full" templateColumns="repeat(2, 1fr)" gap={2}>
-//         {/* 1 Name */}
-//         <GridItem colSpan={{ base: 2, md: 1 }}>
-//           <FormControl isRequired>
-//             <FormLabel>Name</FormLabel>
-//             <Input placeholder="Name" type="text" name="name" value={name} onChange={handleChange} />
-//           </FormControl>
-//         </GridItem>
-
-//         {/* 2 Email*/}
-//         <GridItem colSpan={{ base: 2, md: 1 }}>
-//           <FormControl isRequired>
-//             <FormLabel>Email</FormLabel>
-//             <Input placeholder="Email" type="email" name="email" value={email} onChange={handleChange} />
-//           </FormControl>
-//         </GridItem>
-
-//         {/* 3 Phone*/}
-//         <GridItem colSpan={{ base: 2, md: 1 }}>
-//           <FormControl isRequired>
-//             <FormLabel>Phone</FormLabel>
-//             <Input placeholder="Phone" type="text" name="phone" value={phone} onChange={handleChange} />
-//           </FormControl>
-//         </GridItem>
-
-//         {/* 4 Age*/}
-//         <GridItem colSpan={{ base: 2, md: 1 }}>
-//           <FormControl isRequired>
-//             <FormLabel>Age</FormLabel>
-//             <Input placeholder="Age" type="number" name="age" value={age} onChange={handleChange} />
-//           </FormControl>
-//         </GridItem>
-
-//         {/* 5 */}
-//         <GridItem colSpan={2}>
-//           <FormControl isRequired>
-//             <FormLabel>Adderess</FormLabel>
-//             <Textarea placeholder="address" type="text" name="address" value={address} onChange={handleChange} resize="none" />
-//           </FormControl>
-//         </GridItem>
-
-//         {/* 6 Country */}
-//         <GridItem colSpan={2}>
-//           <FormControl>
-//             <FormLabel>Country</FormLabel>
-//             <Select name="country" value={country} onChange={handleChange} placeholder="Select country">
-//               <option value="india">India</option>
-//               <option value="usa">USA</option>
-//               <option value="canada">Canada</option>
-//               <option value="japan">Japan</option>
-//             </Select>
-//           </FormControl>
-//         </GridItem>
-
-//         {/* 7  Profile Pic */}
-//         <GridItem colSpan={2}>
-//           <FormControl isRequired>
-//             <FormLabel>Profile Pic</FormLabel>
-//             <Input placeholder="Profile Picture" type="text" name="pro_pic" value={pro_pic} onChange={handleChange} />
-//           </FormControl>
-//         </GridItem>
-
-//         {/* 8 Buttom */}
-//         <GridItem colSpan={2}>
-//           <FormControl isRequired>
-//             <Button onClick={hanldeClick} variant="outline" w={"full"}>
-//               CREATE PROFILE
-//             </Button>
-//           </FormControl>
-//         </GridItem>
-//       </Grid>
-//       <form>
-//         <FormControl>
-//           <FormLabel>Email address</FormLabel>
-//           <Input type="email" placeholder="Enter your email address" />
-//         </FormControl>
-
-//         <FormControl>
-//           <FormLabel>Email address</FormLabel>
-//           <Input type="email" placeholder="Enter your email address" />
-//         </FormControl>
-
-//         <FormControl mt={4}>
-//           <FormLabel>Password</FormLabel>
-//           <Input type="password" placeholder="Enter your password" />
-//         </FormControl>
-
-//         <Stack isInline justifyContent="space-between" mt={4}>
-//           <Box>
-//             <Checkbox>Remember Me</Checkbox>
-//           </Box>
-//           <Box>
-//             <Link color={`${VARIANT_COLOR}.500`}>Forgot your password?</Link>
-//           </Box>
-//         </Stack>
-
-//         <Button variantColor={VARIANT_COLOR} width="full" mt={4}>
-//           Sign In
-//         </Button>
-//       </form>
-//       <Flex justifyContent="center" gap={2} mt={4}>
-//         <Box>
-//           <Text>Not on Myhours yet ? </Text>
-//         </Box>
-//         <Box>
-//           <Link color={`${VARIANT_COLOR}.500`}>Sign up</Link>
-//         </Box>
-//       </Flex>
-//     </Box>
-//   );
-// };
 
 export default SignUp;

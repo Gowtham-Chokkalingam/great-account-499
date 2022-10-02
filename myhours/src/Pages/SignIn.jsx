@@ -17,8 +17,6 @@ const SignIn = () => {
 
   const [data, setData] = React.useState([]);
 
-  const [userName, setUserName] = React.useState("");
-
   const { email, password } = formData;
 
   const navigate = useNavigate();
@@ -45,15 +43,11 @@ const SignIn = () => {
     fetchData();
   }, []);
 
-  const hanldeClick = (em, pwd) => {
-    // e.preventDefault();
-
-    data.forEach((element) => {});
-
+  const hanldeClick = (email, pwd) => {
     let ans = data.map((ele) => {
-      if (em === ele.email && pwd === ele.password) {
+      if (email === ele.email && pwd === ele.password) {
         console.log("usetname", ele.firstName);
-        // setUserName();
+
         let token = Math.floor(Math.random() * 20022);
         loginUser(token, ele.firstName);
         return true;
