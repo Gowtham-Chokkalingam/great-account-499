@@ -1,10 +1,18 @@
-import './App.css';
+import NavBar from "./Routes/NavBar";
+
+import AllRoutes from "./Routes/AllRoutes";
+import { Container, Stack } from "@chakra-ui/react";
+import React from "react";
+import Home from "./Pages/Home";
+import HowItWorks from "./Pages/HowItWorks";
 
 function App() {
   return (
-    <div className="App">
+    <Stack w={"full"} h={'100%'}>
+      <NavBar></NavBar>
     
-    </div>
+      <AllRoutes></AllRoutes>
+    </Stack>
   );
 }
 
